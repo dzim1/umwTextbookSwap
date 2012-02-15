@@ -1,0 +1,35 @@
+
+
+mysql> DESC books
+    -> ;
++---------+-----------------------+------+-----+-------------------+-------+
+| Field   | Type                  | Null | Key | Default           | Extra |
++---------+-----------------------+------+-----+-------------------+-------+
+| User    | varchar(30)           | NO   |     |                   |       |
+| Title   | varchar(30)           | YES  |     | NULL              |       |
+| Author  | varchar(30)           | YES  |     | NULL              |       |
+| ISBN    | bigint(20) unsigned   | YES  |     | NULL              |       |
+| Class   | varchar(20)           | YES  |     | NULL              |       |
+| Price   | decimal(8,2) unsigned | YES  |     | NULL              |       |
+| Quality | varchar(20)           | YES  |     | NULL              |       |
+| Added   | timestamp             | NO   |     | CURRENT_TIMESTAMP |       |
++---------+-----------------------+------+-----+-------------------+-------+
+8 rows in set (0.04 sec)
+
+mysql> DESC user
+    -> ;
++----------+-------------+------+-----+---------+----------------+
+| Field    | Type        | Null | Key | Default | Extra          |
++----------+-------------+------+-----+---------+----------------+
+| ID       | int(11)     | NO   | PRI | NULL    | auto_increment |
+| User     | varchar(30) | NO   |     |         |                |
+| Pass     | varchar(20) | NO   |     |         |                |
+| UMWEmail | varchar(20) | NO   |     |         |                |
+| Phone    | varchar(10) | YES  |     | NULL    |                |
+| NBSold   | int(11)     | YES  |     | NULL    |                |
+| NBBought | int(11)     | YES  |     | NULL    |                |
+| NBSell   | int(11)     | YES  |     | NULL    |                |
++----------+-------------+------+-----+---------+----------------+
+8 rows in set (0.01 sec)
+
+mysql>
