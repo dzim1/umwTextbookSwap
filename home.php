@@ -24,6 +24,12 @@
 					</table>
 					
 					</form>
+<form method = "post" action = "report2.php">
+					<table>										<tr><td>&nbsp;</td><td><input type="submit" value="Register" /></td></tr>
+					</table>
+					
+					</form>
+
 					<!-- END CONTENT -->
 					
 				</div>				   
