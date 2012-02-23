@@ -1,6 +1,7 @@
 
 DROP DATABASE IF EXISTS BookExchange;
 CREATE DATABASE BookExchange;
+GRANT ALL PRIVILEGES ON BookExchange.* to 'assist'@'localhost' identified by 'assist';
 USE BookExchange;
 
 DROP TABLE IF EXISTS User;

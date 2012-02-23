@@ -15,8 +15,8 @@
 			include "db_connect.php";
 		
 			//Session variables (This should be fixed later WED)
-			$username = "Bob";//$_SESSION['username'];
-			$profile = "Lex";//$_SESSION['profile'];
+			$username = "lex";//$_SESSION['username'];
+			$profile = "eric";//$_SESSION['profile'];
 			
 			//SQL for Email and Phone
 			$queryMail = "SELECT UMWEmail FROM User WHERE User = '$profile'";
@@ -29,7 +29,7 @@
 			if ($username == $profile)
 			{
 				//SQL for Password
-				$queryPass = "SELECT Pass FROM User where User = '$profile'";
+				$queryPass = "SELECT Pass FROM User WHERE User = '$profile'";
 				$resultPass = mysqli_query($db, $queryPass);
 			
 				//Password Controller
@@ -37,7 +37,7 @@
 				{
 					if ($row = mysqli_fetch_array($resultPass))
 					{
-						$password = mysqli_fetch_assoc($resultPass);
+						$password = $row['Pass'];
 					}
 					else
 					{
@@ -46,17 +46,23 @@
 				}
 				else
 				{
-					$password = $_POST['password'];
-					$querySetPass = "UPDATE User SET Pass = '$password' WHERE User = '$profile'";
-					$resultSetPass = mysqli_query($db, $querySetPass);
-					$password = mysqli_fetch_assoc($resultSetPass);
+					$setPassword = $_POST['password'];
+					$querySetPass = "UPDATE User SET Pass = '$setPassword' WHERE User = '$profile'";
+					if (mysqli_query($db, $querySetPass))
+					{
+						$resultGetPass = mysqli_query($db, $queryPass);
+						if ($row = mysqli_fetch_array($resultGetPass))
+						{
+							$password = $row['Pass'];
+						}
+					}
 				}
 				//Email Controller
 				if ($_POST['email'] == null)
 				{
 					if ($row = mysqli_fetch_array($resultMail))
 					{
-						$email = mysqli_fetch_assoc($resultMail);
+						$email = $row['UMWEmail'];
 					}
 					else
 					{
@@ -65,17 +71,23 @@
 				}
 				else
 				{
-					$email = $_POST['email'];
-					$querySetMail = "UPDATE User SET UMWEmail = '$email' WHERE User = '$profile'";
-					$resultSetMail = mysqli_query($db, $querySetMail);
-					$email = mysqli_fetch_assoc($resultSetMail);
+					$setEmail = $_POST['email'];
+					$querySetMail = "UPDATE User SET UMWEmail = '$setEmail' WHERE User = '$profile'";
+					if (mysqli_query($db, $querySetMail))
+					{
+						$resultGetMail = mysqli_query($db, $queryMail);
+						if ($row = mysqli_fetch_array($resultGetMail))
+						{
+							$email = $row['UMWEmail'];
+						}
+					}
 				}
 				//Phone # Controller
 				if ($_POST['phone'] == null)
 				{
 					if ($row = mysqli_fetch_array($resultPhone))
 					{
-						$phone = mysqli_fetch_assoc($resultPhone);
+						$phone = $row['Phone'];
 					}
 					else
 					{
@@ -84,10 +96,16 @@
 				}
 				else
 				{
-					$phone = $_POST['phone'];
-					$querySetPhone = "UPDATE User SET Phone = '$phone' WHERE User = '$profile'";
-					$resultSetPhone = mysqli_query($db, $querySetPhone);
-					$phone = mysqli_fetch_assoc($resultSetPhone);
+					$setPhone = $_POST['phone'];
+					$querySetPhone = "UPDATE User SET Phone = '$setPhone' WHERE User = '$profile'";
+					if (mysqli_query($db, $querySetPhone))
+					{
+						$resultGetPhone = mysqli_query($db, $queryPhone);
+						if ($row = mysqli_fetch_array($resultGetPhone))
+						{
+							$phone = $row['Phone'];
+						}
+					}
 				}
 			}
 			else
@@ -95,7 +113,7 @@
 				// Set Email
 				if ($row = mysqli_fetch_array($resultMail))
 				{
-					$email = mysqli_fetch_assoc($resultMail);
+					$email = $row['UMWEmail'];
 				}
 				else
 				{
@@ -104,7 +122,7 @@
 				//Set Phone
 				if ($row = mysqli_fetch_array($resultPhone))
 				{
-					$phone = mysqli_fetch_assoc($resultPhone);
+					$phone = $row['Phone'];
 				}
 				else
 				{
@@ -119,17 +137,17 @@
 				//Change Password Form
 				echo "<form method=\"post\" action=\"editProfile.php\">";
 				echo "<label for=\"password\">Current Password: $password <br/> Edit Password:</label><input type=\"password\" id=\"password\" name=\"password\" />";
-				echo "<input type=\"submit\" value=\"Change Password\" name=\"password\" ><br/>";
+				echo "<input type=\"submit\" value=\"Change Password\" ><br/>";
 			
 				//Change Email Form
 				echo "<form method=\"email\" action=\"editProfile.php\">";
 				echo "<label for=\"email\">Current Email: $email <br/> Edit Email :</label><input type=\"text\" id=\"email\" name=\"email\" />";
-				echo "<input type=\"submit\"value=\"Change Email\" name=\"email\" /><br/>";
+				echo "<input type=\"submit\"value=\"Change Email\" /><br/>";
 				
 				//Change Phone Form
 				echo "<form method=\"phone\" action=\"editProfile.php\">";
 				echo "<label for=\"phone\">Current Phone #: $phone <br/> Edit Phone #:</label><input type=\"text\" id=\"phone\" name=\"phone\" />";
-				echo "<input type=\"submit\" value=\"Change Phone #\" name=\"phone\" />";
+				echo "<input type=\"submit\" value=\"Change Phone #\" />";
 			}
 			else
 			{
