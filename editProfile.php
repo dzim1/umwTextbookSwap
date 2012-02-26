@@ -15,8 +15,8 @@
 			include "db_connect.php";
 		
 			//Session variables (This should be fixed later WED)
-			$username = "lex";//$_SESSION['username'];
-			$profile = "eric";//$_SESSION['profile'];
+			$username = $_SESSION['username'];
+			$profile  = $_SESSION['profile'];
 			
 			//SQL for Email and Phone
 			$queryMail = "SELECT UMWEmail FROM User WHERE User = '$profile'";
