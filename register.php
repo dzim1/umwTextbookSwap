@@ -1,6 +1,4 @@
-<?php
-	session_start();
-?>
+<?php session_start(); ?>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -13,7 +11,7 @@
 		
 
 
-	<form method = "post" action = "register2.php">
+	<form method = "post" action = "login.php">
 					<table>
 					<tr><td>User Name</td><td><input type="text" id="username" name="username" /></td></tr>
 					<tr><td>Password</td><td><input type="text" id="password" name="password" /></td></tr>
@@ -26,9 +24,6 @@
 	
 		<?php
 			include "db_connect.php";
-			include "BookExchange.sql";
-			
-			
 			
 			$username = $_POST['username'];
 			$password = $_POST['password'];
