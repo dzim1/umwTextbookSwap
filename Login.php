@@ -1,38 +1,62 @@
 <?php
 	session_start();
 ?>
-
+<?php
+	error_reporting(~E_ALL);
+?>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <title>Log In </title>
+  <title>Log In</title>
   <link rel="stylesheet" type="text/css" href="style.css" />
 </head>
 
-	<body>
-	<div id="contents">
-		
+<body>
+<div id="contents">
+<?php
+  include "db_connect.php";
+  
+  if ($_POST['username'] != null)
+  {
+		$name = $_POST['username'];
+  }
+  else
+  {
+		$name = null;
+  }
+  if ($_POST['pw'] != null)
+  {
+		$pw = $_POST['pw'];
+  }
+  else
+  {
+		$pw = null;
+  }
 
-
-	<form method = "post" action = "profile.php">
-					<table>
-					<tr><td></td>User Name<td><input type="text" id="username" name="username" /></td></tr>					
-					<tr><td></td>Password<td><input type="text" id="password" name="password" /></td></tr>				
-					<tr><td>&nbsp;</td><td><input type="submit" value="Log In" /></td></tr>
-					</table>
-					
-					</form>		
-	
-		<?php
-			include "db_connect.php";		
-			$_SESSION['user'] = $_POST['username'];
-			$password = $_POST['password'];
-				
-		
-					
+   $query = "Select * from user WHERE user = '$name' AND pass = '$pw'";
+   $result = mysqli_query($db, $query);
+   
+   if ($row = mysqli_fetch_array($result))
+   {
+		$result1 = mysqli_query($db, $query1);
+   		echo "<p>Thanks for logging in, $name</p>\n";
+   		echo "<p><a href=\"search.php\">Continue</a></p>";
+   }
+   else 
+    {
+		if ($name != null)
+		{
+			echo "<p>Incorrect username or password</p>\n";
+		}
+   		echo  "<h1>Log In</h1>\n  <form method=\"post\" action=\"login.php\">";
+    	echo "<label for=\"username\">Username:</label><input type=\"text\" id=\"username\" name=\"username\" /><br />";
+        echo "<label for=\"pw\">Password:</label><input type=\"password\" id=\"pw\" name=\"pw\" /><br />";
+        echo "<input type=\"submit\" value=\"Login\" name=\"submit\" />";
+    }
+   
+  
 ?>
-		
-	</div>
-	</body>
+  
+  </div>
+</body>
 </html>
-	
