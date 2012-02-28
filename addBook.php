@@ -33,11 +33,6 @@
 
 <?php
 	include "db_connect.php";
-
-	//$username = $_SESSION['username'];
-	$username = 'Bob';
-	$insertInto = "INSERT INTO Books VALUES('$username', 	'$title', 'author', '$isbn', '$class', '$price', 	'$quality')";
-	$insertIntoQuery = mysqli_query($db, $insertInto);
 ?>
 
 					
