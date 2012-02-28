@@ -22,7 +22,7 @@
 
 					<?php
 					
-					echo "<p>Thanks for adding a book, 						$username!</p>";
+					echo "<p>Thanks for adding a book, $username!</p>";
 
 					$title = $_POST['title'];
 					$author = $_POST['author'];
