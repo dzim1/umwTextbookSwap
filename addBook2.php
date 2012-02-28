@@ -13,16 +13,17 @@
 <div id="contents">
 
 <?php
-	//include "db_connect.php";
-	//include "BookExchange.sql";
+	include "db_connect.php";
+	$username = $_SESSION['username'];
 ?>
 
 					<!-- CONTENT -->
-					<h3>Your book was added</h3>
-					<p>Thanks for adding a book!
+					<h1>Your book was added</h1>
 					
 					<?php
 					
+					echo "<p>Thanks for adding a book, 						$username!</p>";
+
 					$title = $_POST['title'];
 					$author = $_POST['author'];
 					$isbn = $_POST['isbn'];
@@ -36,9 +37,18 @@
 					echo "<p>Class: $class</p>";
 					echo "<p>Price: $price</p>";
 					echo "<p>Quality: $quality</p>";
-					
-					?>
 
+					?>
+<?php
+
+$query = "SELECT * FROM Books ORDER BY User";
+$result = mysqli_query($db, $query) or die("Error Querying Database");
+					
+mysqli_close($db);
+
+?>
+
+					
 					</form>
 					<!-- END CONTENT -->
 					
