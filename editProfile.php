@@ -11,9 +11,15 @@
   <link rel="stylesheet" type="text/css" href="style.css" />
 </head>
 
+
 	<body>
 	<div id="contents">
 	
+	
+	<form method="post" action="search.php" /></td>
+	<td>&nbsp;</td><td><input type="submit" value="Search" /></td>
+				
+	</form>
 		<?php
 			include "db_connect.php";
 		
@@ -29,6 +35,7 @@
 			
 			
 			//Sets the variables beforehand for profile
+			
 			if ($username == $profile)
 			{
 				//SQL for Password
