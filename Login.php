@@ -40,7 +40,7 @@
    {
 		$result1 = mysqli_query($db, $query1);
    		echo "<p>Thanks for logging in, $name</p>\n";
-   		echo "<p><a href=\"search.php\">Continue</a></p>";
+   		echo "<p><a href=\"editProfile.php\">Continue</a></p>";
    }
    else 
     {
