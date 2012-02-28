@@ -13,13 +13,14 @@
 	<h3>UMW Textbook Swap</h3>
 	<p>Welcome to the official textbook swap website at the University of Mary Washington! </p>
 			
-	<form method = "post" action = "login.php">
+	<form method = "post" action = "Login.php">
 	<table>
 	<tr><td>&nbsp;</td><td><input type="submit" value="Login" /></td>
 		
 	</form>
 	<form method = "post" action = "createAccount.php">
 	<td>&nbsp;</td><td><input type="submit" value="Register" /></td>
+	</form>
 
 	<form method="post" action="search.php" /></td>
 	<td>&nbsp;</td><td><input type="submit" value="Search" /></td>
