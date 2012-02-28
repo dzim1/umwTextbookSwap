@@ -19,7 +19,7 @@
 
 					<!-- CONTENT -->
 					<h1>Your book was added</h1>
-					
+
 					<?php
 					
 					echo "<p>Thanks for adding a book, 						$username!</p>";
@@ -39,7 +39,17 @@
 					echo "<p>Quality: $quality</p>";
 
 					?>
+
+<form method = "post" action = 	"addBook.php">
+
+<table>
+<tr><td>&nbsp;</td><td><input type="submit" value="Add Another Book" /></td></tr>
+</table>
+
 <?php
+
+$insertInto = "INSERT INTO Books VALUES('$username', 	'$title', 'author', '$isbn', '$class', '$price', '$quality')";
+$insertIntoQuery = mysqli_query($db, $insertInto);
 
 $query = "SELECT * FROM Books ORDER BY User";
 $result = mysqli_query($db, $query) or die("Error Querying Database");
