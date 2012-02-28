@@ -25,7 +25,13 @@
 					<tr><td>Author</td><td><input type="text" id="author" name="author" /></td></tr>
 					<tr><td>ISBN</td><td><input type="number" id="isbn" name="isbn" /></td></tr>	
 					<tr><td>Class</td><td><input type="text" id="class" name="class" /></td></tr>
-					<tr><td>Price</td><td><input type="number" id="price" name="price" /></td></tr>								<tr><td>Quality</td><td><input type="text" id="quality" name="quality" /></td></tr>
+					<tr><td>Price</td><td><input type="number" id="price" name="price" /></td></tr>								<tr><td>Quality</td><td><select name="quality" id="quality">
+			<option value="Excellent">Excellent</option>
+			<option value="Good">Good</option>
+			<option value="Decent">Decent</option>
+			<option value="Bad">Bad</option>
+			</select></td>
+
 
 					<tr><td>&nbsp;</td><td><input type="submit" value="Submit Book" /></td></tr>
 
