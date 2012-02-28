@@ -1,4 +1,17 @@
-Here's the kanban site: 
 
-http://kanbanize.com/ctrl_board
-Please create your tasks that you will be working on, on our kanban board.
+
+
+First, make sure the apache server is running.
+
+Then source the BookExchange.sql file in mysql.
+
+Finally set your browser to localhost/index.php
+
+
+
+
+
+
+
+
+
