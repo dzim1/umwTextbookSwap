@@ -1,3 +1,5 @@
+
+
 <?php
 	session_start();
 ?>
@@ -12,13 +14,8 @@
 
 <div id="contents">
 
-<?php
-	//include "db_connect.php";
-	//include "BookExchange.sql";
-?>
-
 					<!-- CONTENT -->
-					<h3>Add a Book</h3>
+					<h1>Add a Book</h1>
 					<p>Add a book to be put on the market. </p>
 					<form method = "post" action = "addBook2.php">
 
@@ -33,6 +30,16 @@
 					<tr><td>&nbsp;</td><td><input type="submit" value="Submit Book" /></td></tr>
 
 					</table>
+
+<?php
+	include "db_connect.php";
+
+	//$username = $_SESSION['username'];
+	$username = 'Bob';
+	$insertInto = "INSERT INTO Books VALUES('$username', 	'$title', 'author', '$isbn', '$class', '$price', 	'$quality')";
+	$insertIntoQuery = mysqli_query($db, $insertInto);
+?>
+
 					
 					
 					</form>
