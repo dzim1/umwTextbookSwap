@@ -16,6 +16,8 @@
 <?php
   include "db_connect.php";
   
+  
+  
   if ($_POST['username'] != null)
   {
 		$name = $_POST['username'];
@@ -32,7 +34,7 @@
   {
 		$pw = null;
   }
-
+	
    $query = "Select * from user WHERE user = '$name' AND pass = '$pw'";
    $result = mysqli_query($db, $query);
    
@@ -41,6 +43,8 @@
 		$result1 = mysqli_query($db, $query1);
    		echo "<p>Thanks for logging in, $name</p>\n";
    		echo "<p><a href=\"editProfile.php\">Continue</a></p>";
+		$_SESSION['username']=$name;
+		$_SESSION['profile']= $name;
    }
    else 
     {
@@ -54,6 +58,7 @@
         echo "<input type=\"submit\" value=\"Login\" name=\"submit\" />";
     }
    
+  
   
 ?>
   
