@@ -34,3 +34,11 @@ Quality VARCHAR(20),
 Added TIMESTAMP DEFAULT NOW()
 
 );
+
+INSERT INTO User
+VALUES("dzim1", "daniel1", "dzimmerm@mail.umw.edu", "7575464406");
+INSERT INTO User
+VALUES("bobSaget", "bob", "bob@bobsaget.com", "1234567890");
+INSERT INTO User
+VALUES("Fonze", "tooCool", "awesomeguy@cool.com", "8675309");
+
