@@ -14,9 +14,12 @@
 
 <div id="contents">
 
-					<!-- CONTENT -->
 					<h1>Add a Book</h1>
 					<p>Add a book to be put on the market. </p>
+
+<?php
+	include "db_connect.php";
+?>
 					<form method = "post" action = "addBook2.php">
 
 					<table>
@@ -26,6 +29,7 @@
 					<tr><td>ISBN</td><td><input type="number" id="isbn" name="isbn" /></td></tr>	
 					<tr><td>Class</td><td><input type="text" id="class" name="class" /></td></tr>
 					<tr><td>Price</td><td><input type="number" id="price" name="price" /></td></tr>								<tr><td>Quality</td><td><select name="quality" id="quality">
+			<option value="New">New</option>
 			<option value="Excellent">Excellent</option>
 			<option value="Good">Good</option>
 			<option value="Decent">Decent</option>
@@ -37,15 +41,10 @@
 
 					</table>
 
-<?php
-	include "db_connect.php";
-?>
-
-					
-					
 					</form>
-					<!-- END CONTENT -->
-					
-				</div>
-	</body>
+
+
+
+</div>
+</body>
 </html>
