@@ -17,7 +17,6 @@
 	$username = $_SESSION['username'];
 ?>
 
-					<!-- CONTENT -->
 					<h1>Your book was added</h1>
 
 					<?php
@@ -43,25 +42,29 @@
 <form method = "post" action = 	"addBook.php">
 
 <table>
+
 <tr><td>&nbsp;</td><td><input type="submit" value="Add Another Book" /></td></tr>
+
 </table>
+
+</form>
 
 <?php
 
-$insertInto = "INSERT INTO Books VALUES('$username', 	'$title', 'author', '$isbn', '$class', '$price', '$quality')";
-$insertIntoQuery = mysqli_query($db, $insertInto);
+$title = $_POST['title'];
+$author = $_POST['author'];
+$isbn = $_POST['isbn'];
+$class = $_POST['class'];
+$price = $_POST['price'];
+$quality = $_POST['quality'];
 
-$query = "SELECT * FROM Books ORDER BY User";
-$result = mysqli_query($db, $query) or die("Error Querying Database");
-					
-mysqli_close($db);
+$insertInto = "INSERT INTO books VALUES('$username', 	'$title', '$author', '$isbn', '$class', '$price', '$quality', NULL)";
+$insertIntoQuery = mysqli_query($db, $insertInto);
 
 ?>
 
+
 					
-					</form>
-					<!-- END CONTENT -->
-					
-				</div>
-	</body>
+</div>
+</body>
 </html>
