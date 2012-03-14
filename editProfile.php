@@ -15,11 +15,18 @@
 	<body>
 	<div id="contents">
 	
-	
+	<table>
 	<form method="post" action="search.php" /></td>
 	<td>&nbsp;</td><td><input type="submit" value="Search" /></td>
+	
 				
 	</form>
+<form method="post" action="addBook.php" /></td>
+	<td>&nbsp;</td><td><input type="submit" value="Add a Book" /></td>
+	
+				
+	</form>
+	</table>
 		<?php
 			include "db_connect.php";
 		
