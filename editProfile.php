@@ -87,16 +87,29 @@
 				}
 				else
 				{
-					$setPassword = $_POST['password'];
-					$querySetPass = "UPDATE User SET Pass = '$setPassword' WHERE User = '$profile'";
-					if (mysqli_query($db, $querySetPass))
+					$oldPassword = $_POST['oldpassword'];
+					$newPassword = $_POST['newpassword'];
+					$newPassword1 = $_POST['newpassword1'];
+					
+					$queryComparePass = "SELECT Pass FROM USER WHERE User = '$profile' AND Pass = SHA('$oldpassword')";
+					if (mysqli_query($db, $queryComparePass))
 					{
-						$resultGetPass = mysqli_query($db, $queryPass);
-						if ($row = mysqli_fetch_array($resultGetPass))
+						if ($newPassword == $newPassword1)
 						{
-							$password = $row['Pass'];
+							$querySetPass = "UPDATE User SET Pass = SHA('$newPassword') WHERE User = '$profile'";
+							if (mysqli_query($db, $querySetPass))
+							{
+								$resultGetPass = mysqli_query($db, $queryPass);
+								if ($row = mysqli_fetch_array($resultGetPass))
+								{
+									$password = $row['Pass'];
+								}
+							}
 						}
 					}
+					else
+					{
+						echo "<p> The Current Password you have entered does not match you Current Password </p>"
 				}
 				//Email Controller
 				if ($_POST['email'] == null)
@@ -177,17 +190,22 @@
 				
 				//Change Password Form
 				echo "<form method=\"post\" action=\"editProfile.php\">";
-				echo "<label for=\"password\">Current Password: $password <br/> Edit Password:</label><input type=\"password\" id=\"password\" name=\"password\" />";
+				echo "<h2><u> Change Password </u></h2>";
+				echo "<label for=\"oldpassword\">Current Password</label><input type=\"password\" name=\"oldpassword\" /><br/>";
+				echo "<label for=\"newpassword\">New Password</label><input type=\"password\" name=\"newpassword\" /><br/>";
+				echo "<label for=\"newpassword1\">Re-enter New Password</label><input type=\"password\" name=\"newpassword1\" />";
 				echo "<input type=\"submit\" value=\"Change Password\" ><br/>";
 			
 				//Change Email Form
 				echo "<form method=\"email\" action=\"editProfile.php\">";
-				echo "<label for=\"email\">Current Email: $email <br/> Edit Email :</label><input type=\"text\" id=\"email\" name=\"email\" />";
+				echo "<h2><u> Change Email </u></h2>";
+				echo "<label for=\"email\">$email <br/> Edit Email :</label><input type=\"text\" id=\"email\" name=\"email\" />";
 				echo "<input type=\"submit\"value=\"Change Email\" /><br/>";
 				
 				//Change Phone Form
 				echo "<form method=\"phone\" action=\"editProfile.php\">";
-				echo "<label for=\"phone\">Current Phone #: $phone <br/> Edit Phone #:</label><input type=\"text\" id=\"phone\" name=\"phone\" />";
+				echo "<h2><u> Change Phone Number </u></h2>";
+				echo "<label for=\"phone\">$phone<br/> Edit Phone #:</label><input type=\"text\" id=\"phone\" name=\"phone\" />";
 				echo "<input type=\"submit\" value=\"Change Phone #\" />";
 			}
 			else
