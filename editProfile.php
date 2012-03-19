@@ -14,23 +14,41 @@
 
 	<body>
 	<div id="contents">
+		
+		<table id=\"hor-minimalist-b\">
+			<tr>
+			<td>
+			<form method = "post" action = "logout.php">
+			<td>&nbsp;</td><td><input type="submit" value="Logout" /></td>
+			</form>
+			</td>
 	
-	<table>
-	<form method="post" action="search.php" /></td>
-	<td>&nbsp;</td><td><input type="submit" value="Search" /></td>
-	
-				
-	</form>
-<form method="post" action="addBook.php" /></td>
-	<td>&nbsp;</td><td><input type="submit" value="Add a Book" /></td>
-	
-				
-	</form>
-	</table>
+			<td>
+			<form method="post" action="search.php" /></td>
+			<td>&nbsp;</td><td><input type="submit" value="Search" /></td>
+			</form>
+			</td>
+			
+			<td>
+			<form method="post" action="userindex.php" /></td>
+			<td>&nbsp;</td><td><input type="submit" value="User Index" /></td>
+			</form>
+			</td>
+			
+			<td>
+			<form method="post" action="addBook.php" /></td>
+			<td>&nbsp;</td><td><input type="submit" value="Add a Book" /></td>
+			</form>
+			</td>
+			</tr>
+			
+		</table>
+		
+		<hr/ color="#0000A0">
+		
 		<?php
 			include "db_connect.php";
 		
-			//Session variables (This should be fixed later WED)
 			$username = $_SESSION['username'];
 			$profile  = $_SESSION['profile'];
 			
