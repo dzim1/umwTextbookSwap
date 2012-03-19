@@ -18,25 +18,31 @@
 		<table id=\"hor-minimalist-b\">
 			<tr>
 			<td>
+			<form method = 'post' action = "redirectProfile.php">
+			<td>&nbsp;</td><td><input type="submit" value="Profile" /></td>
+			</form>
+			</td>
+			
+			<td>
 			<form method = "post" action = "logout.php">
 			<td>&nbsp;</td><td><input type="submit" value="Logout" /></td>
 			</form>
 			</td>
 	
 			<td>
-			<form method="post" action="search.php" /></td>
+			<form method="post" action="search.php" />
 			<td>&nbsp;</td><td><input type="submit" value="Search" /></td>
 			</form>
 			</td>
 			
 			<td>
-			<form method="post" action="userindex.php" /></td>
+			<form method="post" action="userindex.php" />
 			<td>&nbsp;</td><td><input type="submit" value="User Index" /></td>
 			</form>
 			</td>
 			
 			<td>
-			<form method="post" action="addBook.php" /></td>
+			<form method="post" action="addBook.php" />
 			<td>&nbsp;</td><td><input type="submit" value="Add a Book" /></td>
 			</form>
 			</td>
