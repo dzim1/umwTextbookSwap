@@ -28,7 +28,7 @@
 
 
 <div id="contents">
-	<h2>Search for a Book</h2>
+	<h1>Search for a Book</h1>
 	<p>*you do not have to fill all fields<p>
 	
 	<form name="bookSearch" method="post" id="bookSearch" action="submitSearch.php">

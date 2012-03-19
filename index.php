@@ -10,7 +10,7 @@
 
 <div id="contents">				
 <!-- CONTENT -->
-	<h3>UMW Textbook Swap</h3>
+	<h1>UMW Textbook Swap</h1>
 	<p>Welcome to the official textbook swap website at the University of Mary Washington! </p>
 			
 	<form method = "post" action = "Login.php">

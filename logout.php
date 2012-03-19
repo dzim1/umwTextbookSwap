@@ -12,7 +12,7 @@
 	?>
 	
 	<div id="contents">
-		<h3> You have been logged out </h3>
+		<h1> You have been logged out </h1>
 		<p><a href="index.php">Go back to Home Page</a></p>
 	</div>
 	

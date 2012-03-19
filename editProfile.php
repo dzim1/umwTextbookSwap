@@ -193,8 +193,8 @@
 			else
 			{
 				echo "<h1> $profile's Profile </h1>";
-				echo "<h3> $profile's email: $email";
-				echo "<h3> $profile's phone #: $phone";
+				echo "<h2> $profile's email: $email";
+				echo "<h2> $profile's phone #: $phone";
 			}
 		?>
 		
