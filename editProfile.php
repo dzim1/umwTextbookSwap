@@ -106,10 +106,15 @@
 								}
 							}
 						}
+						else
+						{
+							echo "<p> Your New Passwords did not match with one another </p>";
+						}
 					}
 					else
 					{
-						echo "<p> The Current Password you have entered does not match you Current Password </p>"
+						echo "<p> The Current Password you have entered does not match you Current Password </p>";
+					}
 				}
 				//Email Controller
 				if ($_POST['email'] == null)
