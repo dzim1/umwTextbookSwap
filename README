@@ -4,14 +4,12 @@
 First, make sure the apache server is running.
 
 Then source the BookExchange.sql file in mysql.
-
 Finally set your browser to localhost/index.php
 
+If you are running linux, you may have some decreased functionality.
 
-
-
-
-
-
+The functionality we have is a login and register user. 
+After you login you can search for a user, see the user index page, add 
+a book to your profile, and logout. 
 
 

@@ -35,7 +35,7 @@
 		$pw = null;
   }
 	
-   $query = "Select * from user WHERE user = '$name' AND pass = SHA('$pw')";
+   $query = "Select * from User WHERE User = '$name' AND pass = SHA('$pw')";
    $result = mysqli_query($db, $query);
    
    if ($row = mysqli_fetch_array($result))
