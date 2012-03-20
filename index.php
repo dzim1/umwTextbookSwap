@@ -22,10 +22,6 @@
 	<td>&nbsp;</td><td><input type="submit" value="Register" /></td>
 	</form>
 
-	<form method="post" action="search.php" /></td>
-	<td>&nbsp;</td><td><input type="submit" value="Search" /></td>
-				
-	</form>
 	<!-- END CONTENT -->
 				
 </div>

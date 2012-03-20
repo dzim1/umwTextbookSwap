@@ -20,8 +20,8 @@
   $email = $_POST['email'];
   $phone = $_POST['phone'];
   
-  $query = "INSERT INTO user (User,Pass,UMWEmail,Phone) VALUES ('$username',SHA('$pass'),'$email', '$phone')";
-  $query1 = "Select * from user WHERE User = '$username'";
+  $query = "INSERT INTO User (User,Pass,UMWEmail,Phone) VALUES ('$username',SHA('$pass'),'$email', '$phone')";
+  $query1 = "Select * from User WHERE User = '$username'";
   $result1 = mysqli_query($db, $query1);
   
   if ($username == null)
