@@ -33,7 +33,7 @@ include "db_connect.php";
 <table>
 <td>&nbsp;</td><td><input type="submit" value="Submit Book" /></td>
 </form>
-<form method = "post" action = "editProfile.php">
+<form method = "post" action = "redirectProfile.php">
 <td>&nbsp;</td><td><input type="submit" value="Back to edit profile page" /></td>
 </table>
 </form>

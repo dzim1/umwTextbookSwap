@@ -13,7 +13,7 @@ session_start();
 <?php
 include "db_connect.php";
 $username = $_SESSION['username'];
-$profile  = $_SESSION['profile'];
+//$profile  = $_SESSION['profile'];
 ?>
 
 <h1>Your book was added</h1>
@@ -38,7 +38,7 @@ echo "<p>Quality: $quality</p>";
 <table>
 <td>&nbsp;</td><td><input type="submit" value="Add Another Book" /></td>
 </form>
-<form method = "post" action = "editProfile.php">
+<form method = "post" action = "redirectProfile.php">
 <td>&nbsp;</td><td><input type="submit" value="Back to edit profile page" /></td>
 </table>
 </form>
@@ -47,7 +47,7 @@ echo "<p>Quality: $quality</p>";
 $insertInto = "INSERT INTO `Books` (`Title`, `Author`, `ISBN`) VALUES ('$title', '$author', '$isbn')";
 $insertIntoQuery = mysqli_query($db, $insertInto);
 
-$userid = "SELECT * from User WHERE User = '$profile'";
+$userid = "SELECT * from User WHERE User = '$username'";
 $uid = mysqli_query($db, $userid);
 if($id = mysqli_fetch_array($uid))
 {
