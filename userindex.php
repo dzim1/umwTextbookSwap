@@ -1,5 +1,6 @@
 <?php
 	session_start();
+	include "header.html"
 ?>
 <?php
 	error_reporting(~E_ALL);
@@ -14,22 +15,6 @@
 	<body>
 	
 	<div id="contents">
-		
-		<table id=\"hor-minimalist-b\">
-			<tr>
-			<td>
-			<form method = "post" action = "logout.php">
-			<td>&nbsp;</td><td><input type="submit" value="Logout" /></td>
-			</form>
-			</td>
-	
-			<td>
-			<form method="post" action="search.php" /></td>
-			<td>&nbsp;</td><td><input type="submit" value="Search" /></td>
-			</form>
-			</td>
-			</tr>
-		</table>
 		
 		<hr/ color="#0000A0">
 	
