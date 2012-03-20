@@ -201,7 +201,47 @@
 				echo "<h2> $profile's phone #: $phone";
 			}
 		?>
-		
+			
+	</div>
+	
+	<div id="contents">
+	
+	
+		<?php
+			
+			echo "<h1> $profile's Books </h1>";
+			
+			$queryId = "SELECT * FROM User WHERE User = '$profile'";
+			$resultId = mysqli_query($db, $queryId);
+			
+			if ($id = mysqli_fetch_array($resultId))
+			{
+				$coolId = (int)$id['ID'];
+			}
+			
+			$queryJ = "SELECT * FROM Junction WHERE UID = $coolId";
+			$resultJ = mysqli_query($db, $queryJ);
+			
+			echo "<table id=\"hor-minimalist-b\">\n<tr><th>Title</th><th>Author</th><th>Price</th><th>Quality</th><tr>\n\n";
+			while($rowJ = mysqli_fetch_array($resultJ)) 
+			{
+				$class = $rowJ['Class'];
+				$book = (int)$rowJ['BID'];
+				$price = $rowJ['Price'];
+				$quality = $rowJ['Quality'];
+				
+				$queryB = "SELECT * FROM Books WHERE BID = $book";
+				$resultB = mysqli_query($db, $queryB);
+				
+				while ($rowB = mysqli_fetch_array($resultB))
+				{
+					$title = $rowB['Title'];
+					$author = $rowB['Author'];
+				}
+				echo "<tr><td>$title</td><td>$author</td><td>$price</td><td>$quality</td></tr>\n";
+			}
+			echo "</table>\n"; 
+		?>
 	</div>
 	</body>
 </html>
