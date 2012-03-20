@@ -13,6 +13,7 @@ session_start();
 <?php
 include "db_connect.php";
 $username = $_SESSION['username'];
+$profile  = $_SESSION['profile'];
 ?>
 
 <h1>Your book was added</h1>
@@ -43,7 +44,24 @@ echo "<p>Quality: $quality</p>";
 </form>
 
 <?php
-$insertInto = "INSERT INTO books VALUES('$username', '$title', '$author', '$isbn', '$class', '$price', '$quality', NULL)";
+$insertInto = "INSERT INTO `Books` (`Title`, `Author`, `ISBN`) VALUES ('$title', '$author', '$isbn')";
+$insertIntoQuery = mysqli_query($db, $insertInto);
+
+$userid = "SELECT * from User WHERE User = '$profile'";
+$uid = mysqli_query($db, $userid);
+if($id = mysqli_fetch_array($uid))
+{
+	$id2 = (int)$id['ID'];
+}
+
+$bookid = "SELECT * from Books WHERE Title = '$title'";
+$bid = mysqli_query($db, $bookid);
+if($id = mysqli_fetch_array($bid))
+{
+	$id3 = (int)$id['BID'];
+}
+
+$insertInto = "INSERT INTO `Junction` (`BID`, `Class`, `Price`, `Quality`) VALUES ($id3, '$class', '$price', '$quality')";
 $insertIntoQuery = mysqli_query($db, $insertInto);
 ?>
 
