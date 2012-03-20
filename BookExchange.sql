@@ -63,7 +63,7 @@ Quality VARCHAR(20)
 
 INSERT INTO `Junction` (`UID`, `BID`, `Class`, `Price`, `Quality`) VALUES
 (1,1, 'English', 20.00, 'Nice'),
-(2,2, 'Math', 30.00, 'Horrible'), 
+(2,2, 'Cat', 30.00, 'Horrible'), 
 (3,3, 'Science', 40.00, 'Nice'), 
 (4,4, 'Comp Sci', 50.00, 'Good');
 
