@@ -51,19 +51,28 @@ $userid = "SELECT * from User WHERE User = '$profile'";
 $uid = mysqli_query($db, $userid);
 if($id = mysqli_fetch_array($uid))
 {
-	$id2 = (int)$id['ID'];
+	$uid = (int)$id['ID'];
 }
 
 $bookid = "SELECT * from Books WHERE Title = '$title'";
 $bid = mysqli_query($db, $bookid);
 if($id = mysqli_fetch_array($bid))
 {
-	$id3 = (int)$id['BID'];
+	$bid = (int)$id['BID'];
 }
 
+<<<<<<< HEAD
 $insertInto1 = "INSERT INTO Junction VALUES ($id2,$id3,'$class', '$price', '$quality')";
 $insertIntoQuery1 = mysqli_query($db, $insertInto1);
 
+=======
+//echo "<p> $uid </p>";
+//echo "<p> $bid </p>";
+
+$insertInto = "INSERT INTO `Junction` (`UID`, `BID`, `Class`, `Price`, `Quality`) VALUES
+('$uid','$bid', '$class', '$price', '$quality')";
+$insertIntoQuery = mysqli_query($db, $insertInto);
+>>>>>>> e452f4aee75f7d2f35fa1130aeb0a54906aa0f9f
 ?>
 
 </div>
