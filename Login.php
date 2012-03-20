@@ -1,5 +1,6 @@
 <?php
 	session_start();
+	include "header.html"
 ?>
 <?php
 	error_reporting(~E_ALL);
