@@ -40,7 +40,6 @@
    
    if ($row = mysqli_fetch_array($result))
    {
-		$result1 = mysqli_query($db, $query1);
    		echo "<p>Thanks for logging in, $name</p>\n";
    		echo "<p><a href=\"editProfile.php\">Continue</a></p>";
 		$_SESSION['username']=$name;

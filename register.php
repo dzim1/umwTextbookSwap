@@ -31,7 +31,7 @@
 			$phonenumber = $_POST['phonenumber'];
 			
 			
-			$insertInto = "INSERT INTO user VALUES('$username','$password','$email','$phonenumber',0,0,0)";
+			$insertInto = "INSERT INTO user VALUES('$username',SHA('$password'),'$email','$phonenumber',0,0,0)";
 			$insertIntoQuery = mysqli_query($db, $insertInto);
 	
 					

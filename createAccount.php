@@ -20,7 +20,7 @@
   $email = $_POST['email'];
   $phone = $_POST['phone'];
   
-  $query = "INSERT INTO user (User,Pass,UMWEmail,Phone) VALUES ('$username','$pass','$email', '$phone')";
+  $query = "INSERT INTO user (User,Pass,UMWEmail,Phone) VALUES ('$username',SHA('$pass'),'$email', '$phone')";
   $query1 = "Select * from user WHERE User = '$username'";
   $result1 = mysqli_query($db, $query1);
   

@@ -69,51 +69,32 @@
 			
 			if ($username == $profile)
 			{
-				//SQL for Password
-				$queryPass = "SELECT Pass FROM User WHERE User = '$profile'";
-				$resultPass = mysqli_query($db, $queryPass);
-			
 				//Password Controller
-				if ($_POST['password'] == null)
-				{
-					if ($row = mysqli_fetch_array($resultPass))
-					{
-						$password = $row['Pass'];
-					}
-					else
-					{
-						$password = "N/A";
-					}
-				}
-				else
+				if ($_POST['oldpassword'] != null || $_POST['newpassword'] != null || $_POST['newpassword1'] != null )
 				{
 					$oldPassword = $_POST['oldpassword'];
 					$newPassword = $_POST['newpassword'];
 					$newPassword1 = $_POST['newpassword1'];
-					
-					$queryComparePass = "SELECT Pass FROM USER WHERE User = '$profile' AND Pass = SHA('$oldpassword')";
-					if (mysqli_query($db, $queryComparePass))
+					if ($newPassword != $newPassword1)
 					{
-						if ($newPassword == $newPassword1)
+						echo "<p> The New Passwords you have entered do not match one another </p>";
+					}
+					else
+					{
+						$queryComparePass = "SELECT * FROM USER WHERE User = '$profile' AND Pass = SHA('$oldPassword')";
+						$resultCompare = mysqli_query($db, $queryComparePass);
+						if ($row1 = mysqli_fetch_array($resultCompare))
 						{
 							$querySetPass = "UPDATE User SET Pass = SHA('$newPassword') WHERE User = '$profile'";
 							if (mysqli_query($db, $querySetPass))
 							{
-								$resultGetPass = mysqli_query($db, $queryPass);
-								if ($row = mysqli_fetch_array($resultGetPass))
-								{
-									$password = $row['Pass'];
-								}
+									echo "<p> You have changed your password </p>";
 							}
 						}
 						else
 						{
-							echo "<p> Your New Passwords did not match with one another </p>";
+							echo "<p> The Current Password you have entered does not match your Current Password </p>";
 						}
-					}
-					else
-					{
-						echo "<p> The Current Password you have entered does not match you Current Password </p>";
 					}
 				}
 				//Email Controller
