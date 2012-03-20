@@ -61,8 +61,9 @@ if($id = mysqli_fetch_array($bid))
 	$id3 = (int)$id['BID'];
 }
 
-$insertInto = "INSERT INTO `Junction` (`BID`, `Class`, `Price`, `Quality`) VALUES ($id3, '$class', '$price', '$quality')";
-$insertIntoQuery = mysqli_query($db, $insertInto);
+$insertInto1 = "INSERT INTO Junction VALUES ($id2,$id3,'$class', '$price', '$quality')";
+$insertIntoQuery1 = mysqli_query($db, $insertInto1);
+
 ?>
 
 </div>
