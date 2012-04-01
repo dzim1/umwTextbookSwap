@@ -15,8 +15,6 @@
 	<body>
 	
 	<div id="contents">
-		
-		<hr/ color="#0000A0">
 	
 		<?php
 			include "db_connect.php";
@@ -24,14 +22,16 @@
 			$query = "SELECT * FROM User ORDER BY User;";
 			$result = mysqli_query($db, $query);
 			
-			echo "<table id=\"hor-minimalist-b\">\n<tr><th>Name</th><th>Email</th><th>Profile</th><tr>\n\n";
+			echo "<center><h1> User Index </h1></center>";
+			
+			echo "<center><table id=\"hor-minimalist-b\">\n<tr><th>Name</th><th>Email</th><th>Profile</th><tr>\n\n";
 			while($row = mysqli_fetch_array($result)) 
 			{
 				$user = $row['User'];
 				$email = $row['UMWEmail'];
 				echo "<tr><td  >$user</td><td >$email</td><td><a href = 'redirectProfile.php?user=$user'> $user </a></td></tr>\n";
 			}
-			echo "</table>\n"; 
+			echo "</table></center>\n"; 
 		?>
 	</div>
 	</body>

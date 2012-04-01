@@ -7,17 +7,15 @@
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <title>Profile Page </title>
-  <link rel="stylesheet" type="text/css" href="style.css" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Profile Page </title>
+	<link rel="stylesheet" type="text/css" href="style.css" />
 </head>
 
 
 	<body>
 	<div id="contents">
-		
-		<hr/ color="#0000A0">
-		
+			
 		<?php
 			include "db_connect.php";
 		
@@ -29,7 +27,6 @@
 			$queryPhone = "SELECT Phone FROM User WHERE User = '$profile'";
 			$resultMail = mysqli_query($db, $queryMail);
 			$resultPhone = mysqli_query($db, $queryPhone);
-			
 			
 			//Sets the variables beforehand for profile
 			
@@ -138,7 +135,7 @@
 			//This displays the profile according to who is viewing it
 			if ($username == $profile)
 			{
-				echo "<h1>Edit Your Profile: $profile</h1>";
+				echo "<center><h1>Edit Your Profile: $profile</h1></center>";
 				
 				//Change Password Form
 				echo "<form method=\"post\" action=\"editProfile.php\">";
@@ -162,7 +159,7 @@
 			}
 			else
 			{
-				echo "<h1> $profile's Profile </h1>";
+				echo "<center><h1> $profile's Profile </h1></center>";
 				echo "<h2> $profile's email: $email";
 				echo "<h2> $profile's phone #: $phone";
 			}
@@ -175,7 +172,7 @@
 	
 		<?php
 			
-			echo "<h1> $profile's Books </h1>";
+			echo "<center><h1> $profile's Books</h1>";
 			
 			$queryId = "SELECT * FROM User WHERE User = '$profile'";
 			$resultId = mysqli_query($db, $queryId);
@@ -206,7 +203,7 @@
 				}
 				echo "<tr><td>$title</td><td>$author</td><td>$price</td><td>$quality</td></tr>\n";
 			}
-			echo "</table>\n"; 
+			echo "</table>\n </center>"; 
 		?>
 	</div>
 	</body>

@@ -1,6 +1,5 @@
 <?php
 	session_start();
-	include "header.html"
 ?>
 <?php
 	error_reporting(~E_ALL);
@@ -16,9 +15,7 @@
 <div id="contents">
 <?php
   include "db_connect.php";
-  
-  
-  
+   
   if ($_POST['username'] != null)
   {
 		$name = $_POST['username'];
@@ -52,7 +49,7 @@
 		{
 			echo "<p>Incorrect username or password</p>\n";
 		}
-   		echo  "<h1>Log In</h1>\n  <form method=\"post\" action=\"Login.php\">";
+   		echo  "<center><h1>Log In</h1></center>\n  <form method=\"post\" action=\"Login.php\">";
     	echo "<label for=\"username\">Username:</label><input type=\"text\" id=\"username\" name=\"username\" /><br />";
         echo "<label for=\"pw\">Password:</label><input type=\"password\" id=\"pw\" name=\"pw\" /><br />";
         echo "<input type=\"submit\" value=\"Login\" name=\"submit\" />";
