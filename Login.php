@@ -52,11 +52,21 @@
    		echo  "<center><h1>Log In</h1></center>\n  <form method=\"post\" action=\"Login.php\">";
     	echo "<label for=\"username\">Username:</label><input type=\"text\" id=\"username\" name=\"username\" /><br />";
         echo "<label for=\"pw\">Password:</label><input type=\"password\" id=\"pw\" name=\"pw\" /><br />";
-        echo "<input type=\"submit\" value=\"Login\" name=\"submit\" />";
+		echo "
+			<table>
+				<tr>
+					<td>
+						<input type=\"submit\" value=\"Login\" name=\"submit\">
+						</form>
+					</td>
+					<td>
+					<form method =\"post\" action =\"index.php\">
+						<td>&nbsp;</td><td><input type=\"submit\" value=\"Home\" /></td>
+					</form>
+					</td>
+				</tr>
+			</table>";
     }
-   
-  
-  
 ?>
   
   </div>

@@ -15,10 +15,10 @@
 <div id="contents">
 <?php
   include "db_connect.php";
-  $username = $_POST['username'];
-  $pass = $_POST['pass'];
-  $email = $_POST['email'];
-  $phone = $_POST['phone'];
+  $username = trim($_POST['username']);
+  $pass = trim($_POST['pass']);
+  $email = trim($_POST['email']);
+  $phone = trim($_POST['phone']);
   
   $query = "INSERT INTO User (User,Pass,UMWEmail,Phone) VALUES ('$username',SHA('$pass'),'$email', '$phone')";
   $query1 = "Select * from User WHERE User = '$username'";
@@ -31,8 +31,20 @@
     echo "<label for=\"pass\">Password:</label><input type=\"password\" id=\"pass\" name=\"pass\" /><br />";
 	echo "<label for=\"email\">Email:</label><input type=\"text\" id=\"email\" name=\"email\" /><br />";
 	echo "<label for=\"phone\">Phone:</label><input type=\"text\" id=\"phone\" name=\"phone\" /><br />";
-    echo "<input type=\"submit\" value=\"CreateAccount\" name=\"submit\" />";
-	
+	echo "
+		<table>
+			<tr>
+				<td>
+					<input type=\"submit\" value=\"Register\" name=\"submit\">
+					</form>
+				</td>
+				<td>
+				<form method =\"post\" action =\"index.php\">
+					<td>&nbsp;</td><td><input type=\"submit\" value=\"Home\" /></td>
+				</form>
+				</td>
+			</tr>
+		</table>";
   }
   else
   {
@@ -47,7 +59,44 @@
 		echo "<label for=\"pass\">Password:</label><input type=\"password\" id=\"pass\" name=\"pass\" /><br />";
 		echo "<label for=\"email\">Email:</label><input type=\"text\" id=\"email\" name=\"email\" /><br />";
 	    echo "<label for=\"phone\">Phone:</label><input type=\"text\" id=\"phone\" name=\"phone\" /><br />";
-		echo "<input type=\"submit\" value=\"CreateAccount\" name=\"submit\" />";
+		echo "
+			<table>
+				<tr>
+					<td>
+						<input type=\"submit\" value=\"Register\" name=\"submit\">
+						</form>
+					</td>
+					<td>
+					<form method =\"post\" action =\"index.php\">
+						<td>&nbsp;</td><td><input type=\"submit\" value=\"Home\" /></td>
+					</form>
+					</td>
+				</tr>
+			</table>";
+	}
+	else if (($pass == NULL) || ($username == NULL) || ($email == NULL) || ($phone == NULL))
+	{
+		echo "<p> You left a field empty </p>\n";
+		
+		echo "<h1>Create An Account</h1>\n  <form method=\"post\" action=\"createAccount.php\">";
+		echo "<label for=\"username\">Username:</label><input type=\"text\" id=\"username\" name=\"username\" /><br />";
+		echo "<label for=\"pass\">Password:</label><input type=\"password\" id=\"pass\" name=\"pass\" /><br />";
+		echo "<label for=\"email\">Email:</label><input type=\"text\" id=\"email\" name=\"email\" /><br />";
+	    echo "<label for=\"phone\">Phone:</label><input type=\"text\" id=\"phone\" name=\"phone\" /><br />";
+		echo "
+			<table>
+				<tr>
+					<td>
+						<input type=\"submit\" value=\"Register\" name=\"submit\">
+						</form>
+					</td>
+					<td>
+					<form method =\"post\" action =\"index.php\">
+						<td>&nbsp;</td><td><input type=\"submit\" value=\"Home\" /></td>
+					</form>
+					</td>
+				</tr>
+			</table>";
 	}
 	else
 	{

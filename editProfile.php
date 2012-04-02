@@ -185,7 +185,7 @@
 			$queryJ = "SELECT * FROM Junction WHERE UID = $coolId";
 			$resultJ = mysqli_query($db, $queryJ);
 			
-			echo "<table id=\"hor-minimalist-b\">\n<tr><th>Title</th><th>Author</th><th>Price</th><th>Quality</th><tr>\n\n";
+			echo "<table id=\"hor-minimalist-b\">\n<tr><th>Title</th><th>Author</th><th>Price</th><th>Quality</th></tr>\n\n";
 			while($rowJ = mysqli_fetch_array($resultJ)) 
 			{
 				$class = $rowJ['Class'];
