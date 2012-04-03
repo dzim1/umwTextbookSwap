@@ -1,6 +1,7 @@
 <?php 
 session_start();
 error_reporting(~E_ALL);include "header.html" 
+include "db_connect.php";
 ?>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -16,7 +17,7 @@ error_reporting(~E_ALL);include "header.html"
 	<center><h1>Search for a Person</h1></center>
 	<p>*you do not have to fill all fields</p>
 
-	<form name="userSearch" method="post" id="userSearch" action="editProfile.php">
+	<form name="userSearch" method="post" id="userSearch" action="search.php">
 		<table>
 
 			<tr><td><h2>User Name: </h2></td><td> <input type="text" name="user" id="user"/></td></tr>
@@ -54,25 +55,20 @@ error_reporting(~E_ALL);include "header.html"
 	</form>
 	
 <?php
-   $query = "Select User from user WHERE user = 'user'";
+	$user = $_POST['user'];
+	$query = "Select * from user WHERE user = '$user'";
    
-   $result = mysqli_query($db, $query);
+	$result = mysqli_query($db, $query);
    
-   if ($row = mysqli_fetch_array($result))
-   {
+	if ($row = mysqli_fetch_array($result))
+	{
 		$_SESSION['profile']= $row['User'];
-   }
-   else 
-    {
-		if ($name != null)
-		{
-			echo "<p>Sorry, I did not find what you where searching for</p>\n";
-		}
-   		//echo  "<h1>Log In</h1>\n  <form method=\"post\" action=\"login.php\">";
-    	//echo "<label for=\"username\">Username:</label><input type=\"text\" id=\"username\" name=\"username\" /><br />";
-        //echo "<label for=\"pw\">Password:</label><input type=\"password\" id=\"pw\" name=\"pw\" /><br />";
-        //echo "<input type=\"submit\" value=\"Login\" name=\"submit\" />";
-    }
+		echo"<meta http-equiv=\"REFRESH\" content=\"0;url=editProfile.php\">";
+	}
+	else 
+	{
+		echo "<p>Sorry, I did not find what you where searching for</p>\n";
+	}
 ?>
 
 </div>
