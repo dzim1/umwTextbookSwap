@@ -24,12 +24,31 @@
 			
 			echo "<center><h1> Book Index </h1></center>";
 			
-			echo "<center><table id=\"hor-minimalist-b\">\n<tr><th>Title</th><th>Author</th><tr>\n\n";
+			echo "<center><table id=\"hor-minimalist-b\">\n<tr><th>Title</th><th>Author</th><th>Subject</th><th>User</th><tr>\n\n";
 			while($row = mysqli_fetch_array($result)) 
 			{
+				$bid = $row['BID'];
 				$title = $row['Title'];
 				$author = $row['Author'];
-				echo "<tr><td>$title</td><td>$author</td></tr>\n";
+				
+				$query1 = "SELECT * FROM Junction WHERE BID = '$bid'";
+				$result1 = mysqli_query($db, $query1);
+				
+				while ($rowj = mysqli_fetch_array($result1))
+				{
+					$uid = $rowj['UID'];
+					$subject = $rowj['Class'];
+					
+					$query2 = "SELECT * FROM User where ID = '$uid'";
+					$result2 = mysqli_query($db, $query2);
+					
+					while ($rowu = mysqli_fetch_array($result2))
+					{
+						$user = $rowu['User'];
+					}
+				}
+				
+				echo "<tr><td>$title</td><td>$author</td><td>$subject</td><td><a href = 'redirectProfile.php?user=$user'> $user </a></td></tr>\n";
 			}
 			echo "</table></center>\n"; 
 		?>

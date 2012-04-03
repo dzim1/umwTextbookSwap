@@ -27,7 +27,17 @@ include "db_connect.php";
 	<tr><td><h2>Book Title</h2></td><td><input type="text" id="title" maxlength = "30" name="title" /></td></tr>
 	<tr><td><h2>Author</h2></td><td><input type="text" id="author" maxlength = "30" name="author" /></td></tr>
 	<tr><td><h2>ISBN</h2></td><td><input type="number" id="isbn" name="isbn" /></td></tr> 
-	<tr><td><h2>Class</h2></td><td><input type="text" id="class" maxlength = "20" name="class" /></td></tr>
+	<tr><td><h2>Subject</h2></td><td>
+	<select name ="class" id = "class">
+		<option value="Business">Business</option>
+		<option value="History">History</option>
+		<option value="CompSci">Comp Sci</option>
+		<option value="Art">Art</option>
+		<option value="Math">Math</option>
+		<option value="Language">Language</option>
+		<option value="Music">Music</option>
+		<option value="Science">Science</option>
+	</select></td>
 	<tr><td><h2>Price</h2></td><td><input type="number" maxlength = "10" id="price" name="price" /></td></tr> 
 	<tr><td><h2>Quality</h2></td><td>
 	<select name="quality" id="quality">

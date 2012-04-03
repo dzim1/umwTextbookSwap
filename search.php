@@ -47,8 +47,10 @@ include "db_connect.php";
 				<option value="History">History</option>
 				<option value="CompSci">Comp Sci</option>
 				<option value="Art">Art</option>
+				<option value="Math">Math</option>
+				<option value="Language">Language</option>
 				<option value="Music">Music</option>
-				<option value="Biology">Biology</option>
+				<option value="Science">Science</option>
 			</select></td>
 			
 		</table>
