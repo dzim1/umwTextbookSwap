@@ -1,6 +1,6 @@
 <?php
 session_start();
-error_reporting(~E_ALL);
+//error_reporting(~E_ALL);
 include "header.html"
 ?>
 
@@ -22,7 +22,7 @@ $title = $_POST['title'];
 $author = $_POST['author'];
 $isbn = $_POST['isbn'];
 $class = $_POST['class'];
-$price = (int)$_POST['price'];
+$price = (double)$_POST['price'];
 $quality = $_POST['quality'];
 
 if($title != null && $author != null && $isbn != null && $class != null && $price != null && $quality != null)
@@ -59,7 +59,7 @@ $insertIntoQuery = mysqli_query($db, $insertInto);
 	//echo "<p> $bid </p>";
 	
 	$insertInto = "INSERT INTO `Junction` (`UID`, `BID`, `Class`, `Price`, `Quality`) VALUES
-('$uid','$bid', '$class', $price, '$quality')";
+('$uid','$bid', '$class', '$price', '$quality')";
 	$insertIntoQuery = mysqli_query($db, $insertInto);
 	include "bookwasadded.php";
 	}

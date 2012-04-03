@@ -24,11 +24,11 @@ include "db_connect.php";
 
 <form method = "post" action = "addBook2.php">
 <table>
-	<tr><td><h2>Book Title</h2></td><td><input type="text" id="title" name="title" /></td></tr>
-	<tr><td><h2>Author</h2></td><td><input type="text" id="author" name="author" /></td></tr>
+	<tr><td><h2>Book Title</h2></td><td><input type="text" id="title" maxlength = "30" name="title" /></td></tr>
+	<tr><td><h2>Author</h2></td><td><input type="text" id="author" maxlength = "30" name="author" /></td></tr>
 	<tr><td><h2>ISBN</h2></td><td><input type="number" id="isbn" name="isbn" /></td></tr> 
-	<tr><td><h2>Class</h2></td><td><input type="text" id="class" name="class" /></td></tr>
-	<tr><td><h2>Price</h2></td><td><input type="number" id="price" name="price" /></td></tr> 
+	<tr><td><h2>Class</h2></td><td><input type="text" id="class" maxlength = "20" name="class" /></td></tr>
+	<tr><td><h2>Price</h2></td><td><input type="number" maxlength = "10" id="price" name="price" /></td></tr> 
 	<tr><td><h2>Quality</h2></td><td>
 	<select name="quality" id="quality">
 		<option value="New">New</option>
