@@ -1,6 +1,7 @@
 <?php 
 session_start();
-error_reporting(~E_ALL);include "header.html" 
+error_reporting(~E_ALL);
+include "header.html" ;
 include "db_connect.php";
 ?>
 

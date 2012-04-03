@@ -148,13 +148,13 @@
 				//Change Email Form
 				echo "<form method=\"email\" action=\"editProfile.php\">";
 				echo "<h2><u> Change Email </u></h2>";
-				echo "<label for=\"email\">$email <br/> Edit Email :</label><input type=\"text\" id=\"email\" name=\"email\" />";
+				echo "<label for=\"email\">$email <br/> Edit Email :</label><input type=\"text\" maxlength =\"20\" id=\"email\" name=\"email\" />";
 				echo "<input type=\"submit\"value=\"Change Email\" /><br/>";
 				
 				//Change Phone Form
 				echo "<form method=\"phone\" action=\"editProfile.php\">";
 				echo "<h2><u> Change Phone Number </u></h2>";
-				echo "<label for=\"phone\">$phone<br/> Edit Phone #:</label><input type=\"text\" id=\"phone\" name=\"phone\" />";
+				echo "<label for=\"phone\">$phone<br/> Edit Phone #:</label><input type=\"text\" maxlength =\"10\" id=\"phone\" name=\"phone\" />";
 				echo "<input type=\"submit\" value=\"Change Phone #\" />";
 			}
 			else

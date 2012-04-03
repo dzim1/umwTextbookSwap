@@ -27,10 +27,10 @@
   if ($username == null)
   {
 	echo "<h1>Create An Account</h1>\n  <form method=\"post\" action=\"createAccount.php\">";
-    echo "<label for=\"username\">Username:</label><input type=\"text\" id=\"username\" name=\"username\" /><br />";
-    echo "<label for=\"pass\">Password:</label><input type=\"password\" id=\"pass\" name=\"pass\" /><br />";
-	echo "<label for=\"email\">Email:</label><input type=\"text\" id=\"email\" name=\"email\" /><br />";
-	echo "<label for=\"phone\">Phone:</label><input type=\"text\" id=\"phone\" name=\"phone\" /><br />";
+    echo "<label for=\"username\">Username:</label><input type=\"text\" maxlength =\"30\" id=\"username\" name=\"username\" /><br />";
+    echo "<label for=\"pass\">Password:</label><input type=\"password\" maxlength =\"40\" id=\"pass\" name=\"pass\" /><br />";
+	echo "<label for=\"email\">Email:</label><input type=\"text\" maxlength =\"20\" id=\"email\" name=\"email\" /><br />";
+	echo "<label for=\"phone\">Phone:</label><input type=\"text\" maxlength =\"10\" id=\"phone\" name=\"phone\" /><br />";
 	echo "
 		<table>
 			<tr>
@@ -55,10 +55,10 @@
 			echo "<p>There already is someone with that username</p>\n";
 		}
 		echo "<h1>Create An Account</h1>\n  <form method=\"post\" action=\"createAccount.php\">";
-		echo "<label for=\"username\">Username:</label><input type=\"text\" id=\"username\" name=\"username\" /><br />";
-		echo "<label for=\"pass\">Password:</label><input type=\"password\" id=\"pass\" name=\"pass\" /><br />";
-		echo "<label for=\"email\">Email:</label><input type=\"text\" id=\"email\" name=\"email\" /><br />";
-	    echo "<label for=\"phone\">Phone:</label><input type=\"text\" id=\"phone\" name=\"phone\" /><br />";
+		echo "<label for=\"username\">Username:</label><input type=\"text\" maxlength =\"30\" id=\"username\" name=\"username\" /><br />";
+		echo "<label for=\"pass\">Password:</label><input type=\"password\" maxlength =\"40\" id=\"pass\" name=\"pass\" /><br />";
+		echo "<label for=\"email\">Email:</label><input type=\"text\" maxlength =\"20\" id=\"email\" name=\"email\" /><br />";
+	    echo "<label for=\"phone\">Phone:</label><input type=\"text\" maxlength =\"10\" id=\"phone\" name=\"phone\" /><br />";
 		echo "
 			<table>
 				<tr>
@@ -79,10 +79,10 @@
 		echo "<p> You left a field empty </p>\n";
 		
 		echo "<h1>Create An Account</h1>\n  <form method=\"post\" action=\"createAccount.php\">";
-		echo "<label for=\"username\">Username:</label><input type=\"text\" id=\"username\" name=\"username\" /><br />";
-		echo "<label for=\"pass\">Password:</label><input type=\"password\" id=\"pass\" name=\"pass\" /><br />";
-		echo "<label for=\"email\">Email:</label><input type=\"text\" id=\"email\" name=\"email\" /><br />";
-	    echo "<label for=\"phone\">Phone:</label><input type=\"text\" id=\"phone\" name=\"phone\" /><br />";
+		echo "<label for=\"username\">Username:</label><input type=\"text\" maxlength =\"30\" id=\"username\" name=\"username\" /><br />";
+		echo "<label for=\"pass\">Password:</label><input type=\"password\" maxlength =\"40\" id=\"pass\" name=\"pass\" /><br />";
+		echo "<label for=\"email\">Email:</label><input type=\"text\" maxlength =\"20\" id=\"email\" name=\"email\" /><br />";
+	    echo "<label for=\"phone\">Phone:</label><input type=\"text\" maxlength =\"10\" id=\"phone\" name=\"phone\" /><br />";
 		echo "
 			<table>
 				<tr>
