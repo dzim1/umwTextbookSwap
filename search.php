@@ -23,7 +23,7 @@ include "db_connect.php";
 
 			<tr><td><h2>User Name: </h2></td><td> <input type="text" name="user" id="user"/></td></tr>
 
-			<tr><td><h2>Email: </h2></td><td> <input type="test" name="email" id="email" /></td></tr>
+			<!--<tr><td><h2>Email: </h2></td><td> <input type="test" name="email" id="email" /></td></tr>-->
 
 		</table>
 
@@ -35,12 +35,12 @@ include "db_connect.php";
 	<center><h1>Search for a Book</h1></center>
 	<p>*you do not have to fill all fields<p>
 	
-	<form name="bookSearch" method="post" id="bookSearch" action="submitSearch.php">
+	<form name="bookSearch" method="post" id="bookSearch" action="search.php">
 	
 		<table>
 
 		<tr><td><h2>Book Name: </h2></td><td> <input type="text" name="bookName" id="bookname" /></td></tr>
-
+		<!--
 		<tr><td><h2>Subject: </h2></td>
 			<td><select name="subject" id="subject">
 				<option value="Business">Business</option>
@@ -52,21 +52,71 @@ include "db_connect.php";
 				<option value="Music">Music</option>
 				<option value="Science">Science</option>
 			</select></td>
-			
+		-->
 		</table>
 		<tr><td>&nbsp;</td><td><input type="submit" value="Search" /></td></tr>
 	</form>
 	
+
 <?php
 	$user = $_POST['user'];
-	$query = "Select * from user WHERE user = '$user'";
-   
-	$result = mysqli_query($db, $query);
-   
-	if ($row = mysqli_fetch_array($result))
+	$book = $_POST['bookName'];
+	
+	if ($user != null)
 	{
-		$_SESSION['profile']= $row['User'];
-		echo"<meta http-equiv=\"REFRESH\" content=\"0;url=editProfile.php\">";
+		$query = "Select * from user WHERE user = '$user'";
+   
+		$result = mysqli_query($db, $query);
+   
+		if ($row = mysqli_fetch_array($result))
+		{
+			$_SESSION['profile']= $row['User'];
+			echo"<meta http-equiv=\"REFRESH\" content=\"0;url=editProfile.php\">";
+		}
+	}
+	else if ($book != null)
+	{
+		$query1 = "Select * from Books Where Title LIKE \"%$book%\"";
+		$result2 = mysqli_query($db, $query1);
+		
+		if ($rowd = mysqli_fetch_array($result2))
+		{
+			echo "<center><table id=\"hor-minimalist-b\">\n<tr><th>Title</th><th>Author</th><th>Subject</th><th>User</th><tr>\n\n";
+		}
+		else
+		{
+			echo "<h2>NO RESULTS";
+		}
+		
+		while($rowj = mysqli_fetch_array($result2)) 
+		{
+			$bid = $rowj['BID'];
+			$title = $rowj['Title'];
+			$author = $rowj['Author'];
+				
+			$query0 = "SELECT * FROM Junction WHERE BID = '$bid'";
+			$result1 = mysqli_query($db, $query0);
+				
+			while ($rowh = mysqli_fetch_array($result1))
+			{
+				$uid = $rowh['UID'];
+				$subject = $rowh['Class'];
+					
+				$query2 = "SELECT * FROM User where ID = '$uid'";
+				$result3 = mysqli_query($db, $query2);
+					
+				while ($rowu = mysqli_fetch_array($result3))
+				{
+					$user = $rowu['User'];
+				}
+			}
+				
+			echo "<tr><td>$title</td><td>$author</td><td>$subject</td><td><a href = 'redirectProfile.php?user=$user'> $user </a></td></tr>\n";
+		}
+		if ($rowd = mysqli_fetch_array($result2))
+		{
+			echo "</table></center>\n";
+		}
 	}
 	else 
 	{
